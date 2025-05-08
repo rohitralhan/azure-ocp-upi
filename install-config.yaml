@@ -1,0 +1,40 @@
+additionalTrustBundlePolicy: Proxyonly
+apiVersion: v1
+baseDomain: 69dlf.azure.redhatworkshops.io
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: %%WORKER_REPLICAS%%
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: %%MASTER_REPLICAS%%
+metadata:
+  creationTimestamp: null
+  name: ocp
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: %%MACHINE_NET%%
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  azure:
+    baseDomainResourceGroupName: openenv-69dlf
+    cloudName: AzurePublicCloud
+    outboundType: Loadbalancer
+    region: eastus
+    networkResourceGroupName: openenv-69dlf
+    virtualNetwork: my-ocp-vnet
+    controlPlaneSubnet: master-subnet
+    computeSubnet: worker-subnet
+publish: External
+pullSecret: %%PULL_SECRET%%
+sshKey: %%SSH_KEY%%
