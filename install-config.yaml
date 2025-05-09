@@ -1,6 +1,6 @@
 additionalTrustBundlePolicy: Proxyonly
 apiVersion: v1
-baseDomain: 69dlf.azure.redhatworkshops.io
+baseDomain: ocp.upi.com
 compute:
 - architecture: amd64
   hyperthreading: Enabled
@@ -15,7 +15,7 @@ controlPlane:
   replicas: %%MASTER_REPLICAS%%
 metadata:
   creationTimestamp: null
-  name: ocp
+  name: att-az
 networking:
   clusterNetwork:
   - cidr: 10.128.0.0/14
@@ -27,7 +27,7 @@ networking:
   - 172.30.0.0/16
 platform:
   azure:
-    baseDomainResourceGroupName: openenv-69dlf
+    baseDomainResourceGroupName: arm-ocp-upi
     cloudName: AzurePublicCloud
     outboundType: Loadbalancer
     region: eastus
