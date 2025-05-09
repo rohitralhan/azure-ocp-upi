@@ -31,10 +31,6 @@ platform:
     cloudName: AzurePublicCloud
     outboundType: Loadbalancer
     region: eastus
-    networkResourceGroupName: openenv-69dlf
-    virtualNetwork: my-ocp-vnet
-    controlPlaneSubnet: master-subnet
-    computeSubnet: worker-subnet
 publish: External
 pullSecret: %%PULL_SECRET%%
 sshKey: %%SSH_KEY%%
